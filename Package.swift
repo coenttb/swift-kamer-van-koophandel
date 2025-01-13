@@ -8,23 +8,23 @@ extension String {
     static let kvkModels = "Kamer van Koophandel Models"
     static let kvkShared = "Kamer van Koophandel Shared"
     
-    static let zoekenV2 = "Zoeken V2"
-    static let zoekenV1 = "Zoeken V1"
     static let basisprofiel = "Basisprofielen"
-    static let vestigingsprofiel = "Vestigingsprofielen"
     static let naamgeving = "Naamgevingen"
+    static let vestigingsprofiel = "Vestigingsprofielen"
+    static let zoekenV1 = "Zoeken V1"
+    static let zoekenV2 = "Zoeken V2"
 }
 
 extension Target.Dependency {
-    static var zoekenV2: Self { .target(name: .zoekenV2) }
-    static var zoekenV1: Self { .target(name: .zoekenV1) }
-    static var basisprofiel: Self { .target(name: .basisprofiel) }
-    static var vestigingsprofiel: Self { .target(name: .vestigingsprofiel) }
-    static var naamgeving: Self { .target(name: .naamgeving) }
-    
     static var kamerVanKoopHandel: Self {.target(name: .kamerVanKoopHandel) }
-    static var kvkShared: Self { .target(name: .kvkShared) }
     static var kvkModels: Self { .target(name: .kvkModels) }
+    static var kvkShared: Self { .target(name: .kvkShared) }
+    
+    static var basisprofiel: Self { .target(name: .basisprofiel) }
+    static var naamgeving: Self { .target(name: .naamgeving) }
+    static var vestigingsprofiel: Self { .target(name: .vestigingsprofiel) }
+    static var zoekenV1: Self { .target(name: .zoekenV1) }
+    static var zoekenV2: Self { .target(name: .zoekenV2) }
 }
 
 extension Target.Dependency {
