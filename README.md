@@ -17,12 +17,26 @@ You can add `swift-kamer-van-koophandel` to an Xcode project by including it as 
 
 Repository URL: https://github.com/coenttb/swift-kamer-van-koophandel
 
-For a Swift Package Manager project, add the dependency in your Package.swift file:
+For a Swift package, add the dependency in your Package.swift file:
 ```
 dependencies: [
   .package(url: "https://github.com/coenttb/swift-kamer-van-koophandel", branch: "main")
 ]
 ```
+
+You can finalize the Dependency as follows: 
+
+```swift
+import Kamer_van_Koophandel
+extension Kamer_van_Koophandel.AuthenticatedClient: DependencyKey {
+    public static var liveValue: Self {
+        let apiKey = ProcessInfo.processInfo.environment["KVK_API_KEY"]!
+        return try! .live(apiKey: apiKey)
+    }
+}
+```
+
+Which makes the Client available anywhere using `@Dependency(Kamer_van_Koophandel.AuthenticatedClient.self) var kvkClient`.
 
 ## Feedback is much appreciated!
 

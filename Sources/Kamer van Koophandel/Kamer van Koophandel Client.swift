@@ -1,4 +1,6 @@
 import Foundation
+import Authentication
+import Dependencies
 import DependenciesMacros
 import Kamer_van_Koophandel_Models
 import Kamer_van_Koophandel_Shared
@@ -46,3 +48,4 @@ public typealias AuthenticatedClient = _KvKAuthenticatedClient<
     API.Router,
     Client
 >
+
