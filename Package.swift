@@ -29,7 +29,7 @@ extension Target.Dependency {
 
 extension Target.Dependency {
     static var coenttbWeb: Self { .product(name: "Coenttb Web", package: "coenttb-web") }
-    static var authentication: Self { .product(name: "Authentication", package: "swift-authentication") }
+    static var coenttbAuthentication: Self { .product(name: "Coenttb Authentication", package: "coenttb-authentication") }
     static var dependenciesMacros: Self { .product(name: "DependenciesMacros", package: "swift-dependencies") }
     static var dependenciesTestSupport: Self { .product(name: "DependenciesTestSupport", package: "swift-dependencies") }
 }
@@ -60,7 +60,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/coenttb/coenttb-web.git", branch: "main"),
-        .package(url: "https://github.com/coenttb/swift-authentication.git", branch: "main"),
+        .package(url: "https://github.com/coenttb/coenttb-authentication.git", branch: "main"),
         .package(url: "https://github.com/pointfreeco/swift-dependencies.git", from: "1.1.5"),
     ],
     targets: [
@@ -90,7 +90,7 @@ let package = Package(
             dependencies: [
                 .coenttbWeb,
                 .dependenciesTestSupport,
-                .authentication,
+                .coenttbAuthentication,
             ]
         ),
         .target(

@@ -1,6 +1,15 @@
 {
-  "originHash" : "e7b80e566b2e5bbdc51f8a6d8f3fd086f575c86ce864737b77c229e8fd1f0a48",
+  "originHash" : "9a6f887e64aa53c1a2cbaec2d0338ee0a7d33242a626702fef9fd6c8bd1020bb",
   "pins" : [
+    {
+      "identity" : "coenttb-authentication",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/coenttb/coenttb-authentication.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9c4a0e59c5f562ef0fb33adc87e2bd79f0a41041"
+      }
+    },
     {
       "identity" : "coenttb-html",
       "kind" : "remoteSourceControl",
@@ -49,10 +58,10 @@
     {
       "identity" : "swift-authentication",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/coenttb/swift-authentication.git",
+      "location" : "https://github.com/coenttb/swift-authentication",
       "state" : {
         "branch" : "main",
-        "revision" : "08a63624858ec2c2661f1cc8a7e0807a64554fde"
+        "revision" : "868552f07d847cdd3920314969ef09ce04f1403c"
       }
     },
     {

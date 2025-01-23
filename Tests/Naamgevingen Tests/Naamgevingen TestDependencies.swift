@@ -5,8 +5,6 @@ import Testing
 import EnvironmentVariables
 import DependenciesTestSupport
 import IssueReporting
-import BearerAuth
-import Authentication
 import Kamer_van_Koophandel_Shared
 @testable import Naamgevingen
 @testable import Kamer_van_Koophandel_Models

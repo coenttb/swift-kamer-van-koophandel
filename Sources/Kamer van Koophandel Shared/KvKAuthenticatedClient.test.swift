@@ -11,7 +11,7 @@ import Dependencies
 import DependenciesTestSupport
 import EmailAddress
 import Testing
-import BearerAuth
+import Coenttb_Authentication
 
 #if canImport(FoundationNetworking)
 import FoundationNetworking

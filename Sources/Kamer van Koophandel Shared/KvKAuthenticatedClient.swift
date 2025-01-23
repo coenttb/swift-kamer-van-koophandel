@@ -7,8 +7,8 @@
 
 import Foundation
 import URLRouting
-import Authentication
 import Coenttb_Web
+import Coenttb_Authentication
 
 #if canImport(FoundationNetworking)
 import FoundationNetworking
@@ -18,7 +18,7 @@ public typealias _KvKAuthenticatedClient<
     API: Equatable & Sendable,
     APIRouter: ParserPrinter & Sendable,
     Client: Sendable
-> = Authentication.Client<
+> = Coenttb_Authentication.Client<
     String,
     KvKAuthRouter,
     API,
