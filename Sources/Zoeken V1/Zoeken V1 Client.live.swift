@@ -9,9 +9,9 @@ import Coenttb_Web
 import FoundationNetworking
 #endif
 
-extension ClientV1 {
+extension Client {
     public static func live(
-        makeRequest: @escaping @Sendable (_ route: APIV1) throws -> URLRequest
+        makeRequest: @escaping @Sendable (_ route: Zoeken_V1.API) throws -> URLRequest
     ) -> Self {
         @Dependency(URLRequest.Handler.self) var handleRequest
         
@@ -42,26 +42,26 @@ extension ClientV1 {
     }
 }
 
-extension ClientV1 {
+extension Client {
     public static func live(
         apiKey: String
-    ) -> AuthenticatedClientV1 {
+    ) -> AuthenticatedClient {
         
-        @Dependency(APIV1.Router.self) var router
+        @Dependency(Zoeken_V1.API.Router.self) var router
         
-        return AuthenticatedClientV1(
+        return AuthenticatedClient(
             kvkApiKey: apiKey,
             router: router
         ) { makeRequest in
-            ClientV1.live(
+            Zoeken_V1.Client.live(
                 makeRequest: makeRequest
             )
         }
     }
 }
 
-extension AuthenticatedClientV1 {
+extension Zoeken_V1.AuthenticatedClient {
     package static var liveTest: Self {
-        try! AuthenticatedClientV1.test { .live(makeRequest: $0) }
+        try! Zoeken_V1.AuthenticatedClient.test { .live(makeRequest: $0) }
     }
 }

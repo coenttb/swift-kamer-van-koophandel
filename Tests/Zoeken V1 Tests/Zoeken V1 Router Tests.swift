@@ -12,7 +12,7 @@ struct ZoekenV1RouterTests {
     
     @Test("Creates correct URL for KvK number search")
     func testKvKNumberSearchURL() throws {
-        @Dependency(APIV1.Router.self) var router
+        @Dependency(Zoeken_V1.API.Router.self) var router
         
         let kvkNummer: Kamer_van_Koophandel_Models.Number = "59581883"
         let url = router.url(for: .search(
@@ -40,7 +40,7 @@ struct ZoekenV1RouterTests {
     
     @Test("Creates correct URL with multiple search parameters")
     func testMultipleParametersURL() throws {
-        @Dependency(APIV1.Router.self) var router
+        @Dependency(Zoeken_V1.API.Router.self) var router
         
         let url = router.url(for: .search(
             kvkNummer: nil,
@@ -76,7 +76,7 @@ struct ZoekenV1RouterTests {
     
     @Test("Creates correct URL with pagination parameters")
     func testPaginationURL() throws {
-        @Dependency(APIV1.Router.self) var router
+        @Dependency(Zoeken_V1.API.Router.self) var router
         
         let url = router.url(for: .search(
             kvkNummer: nil,
@@ -103,7 +103,7 @@ struct ZoekenV1RouterTests {
     
     @Test("Creates correct URL with RSIN parameter")
     func testRSINSearchURL() throws {
-        @Dependency(APIV1.Router.self) var router
+        @Dependency(Zoeken_V1.API.Router.self) var router
         
         let url = router.url(for: .search(
             kvkNummer: nil,
@@ -130,7 +130,7 @@ struct ZoekenV1RouterTests {
     
     @Test("Creates correct URL with vestigingsnummer parameter")
     func testVestigingsnummerSearchURL() throws {
-        @Dependency(APIV1.Router.self) var router
+        @Dependency(Zoeken_V1.API.Router.self) var router
         
         let url = router.url(for: .search(
             kvkNummer: nil,

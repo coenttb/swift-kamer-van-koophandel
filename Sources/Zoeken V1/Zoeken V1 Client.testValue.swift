@@ -4,7 +4,7 @@ import DependenciesMacros
 import Kamer_van_Koophandel_Models
 import Kamer_van_Koophandel_Shared
 
-extension ClientV1: TestDependencyKey {
+extension Zoeken_V1.Client: TestDependencyKey {
     public static let testValue: Self = {
         let store = ZoekenV1.Store()
         

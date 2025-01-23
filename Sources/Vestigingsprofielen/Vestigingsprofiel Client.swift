@@ -16,7 +16,7 @@ public struct Client: Sendable {
     ) async throws -> Vestigingsprofiel
 }
 
-public typealias AuthenticatedClient = _KvKAuthenticatedClient<
+public typealias AuthenticatedClient = Kamer_van_Koophandel_Shared.AuthenticatedClient<
     API,
     API.Router,
     Client

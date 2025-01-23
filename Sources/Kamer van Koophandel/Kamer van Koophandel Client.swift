@@ -25,11 +25,11 @@ public struct Client: Sendable {
 extension Client {
     @dynamicMemberLookup
     public struct Zoeken: Sendable {
-        public let v1: Zoeken_V1.ClientV1
+        public let v1: Zoeken_V1.Client
         public let v2: Zoeken_V2.Client
         
         public init(
-            v1: Zoeken_V1.ClientV1,
+            v1: Zoeken_V1.Client,
             v2: Zoeken_V2.Client
         ) {
             self.v1 = v1
@@ -42,7 +42,7 @@ extension Client {
     }
 }
 
-public typealias AuthenticatedClient = _KvKAuthenticatedClient<
+public typealias AuthenticatedClient = Kamer_van_Koophandel_Shared.AuthenticatedClient<
     API,
     API.Router,
     Client

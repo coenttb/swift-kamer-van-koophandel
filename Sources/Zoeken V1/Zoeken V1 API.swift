@@ -5,7 +5,7 @@ import Dependencies
 import Kamer_van_Koophandel_Shared
 import Kamer_van_Koophandel_Models
 
-public enum APIV1: Equatable, Sendable {
+public enum API: Equatable, Sendable {
     case search(
         kvkNummer: Kamer_van_Koophandel_Models.Number? = nil,
         rsin: String? = nil,
@@ -23,13 +23,13 @@ public enum APIV1: Equatable, Sendable {
     )
 }
 
-extension APIV1 {
+extension Zoeken_V1.API {
     public struct Router: ParserPrinter, Sendable {
         public init() {}
         
-        public var body: some URLRouting.Router<APIV1> {
+        public var body: some URLRouting.Router<Zoeken_V1.API> {
             OneOf {
-                URLRouting.Route(.case(APIV1.search)) {
+                URLRouting.Route(.case(Zoeken_V1.API.search)) {
                     Method.get
                     Path.v1
                     Path.zoeken
@@ -124,6 +124,6 @@ extension Path<PathBuilder.Component<String>> {
     }
 }
 
-extension APIV1.Router: TestDependencyKey {
-    public static let testValue: APIV1.Router = .init()
+extension Zoeken_V1.API.Router: TestDependencyKey {
+    public static let testValue: Zoeken_V1.API.Router = .init()
 }

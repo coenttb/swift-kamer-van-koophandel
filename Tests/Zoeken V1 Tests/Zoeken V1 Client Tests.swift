@@ -14,7 +14,7 @@
 //    
 //    @Test("Should successfully search with KvK number")
 //    func testSearchByKvKNumber() async throws {
-//        @Dependency(AuthenticatedClientV1.self) var client
+//        @Dependency(AuthenticatedClient.self) var client
 //        @Dependency(TestStrategy.self) var testStrategy
 //        print("testStrategy", testStrategy)
 //        
@@ -47,7 +47,7 @@
 //    
 //    @Test("Should successfully search by location")
 //    func testSearchByLocation() async throws {
-//        @Dependency(AuthenticatedClientV1.self) var client
+//        @Dependency(AuthenticatedClient.self) var client
 //        
 //        let response = try await client.search(
 //            kvkNummer: nil,
@@ -79,7 +79,7 @@
 //    
 //    @Test("Should successfully search with pagination")
 //    func testPagination() async throws {
-//        @Dependency(AuthenticatedClientV1.self) var client
+//        @Dependency(AuthenticatedClient.self) var client
 //        
 //        let response1 = try await client.search(
 //            kvkNummer: nil,
@@ -127,7 +127,7 @@
 //    
 //    @Test("Should handle invalid KvK number")
 //    func testInvalidKvKNumber() async throws {
-//        @Dependency(AuthenticatedClientV1.self) var client
+//        @Dependency(AuthenticatedClient.self) var client
 //        
 //        await #expect(throws: Error.self) {
 //            _ = try await client.search(
@@ -150,7 +150,7 @@
 //    
 //    @Test("Should handle combined search parameters")
 //    func testCombinedSearch() async throws {
-//        @Dependency(AuthenticatedClientV1.self) var client
+//        @Dependency(AuthenticatedClient.self) var client
 //        
 //        let response = try await client.search(
 //            kvkNummer: nil,

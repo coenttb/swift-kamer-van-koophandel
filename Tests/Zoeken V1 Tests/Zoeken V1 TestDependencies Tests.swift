@@ -13,19 +13,19 @@ import Kamer_van_Koophandel_Shared
 import FoundationNetworking
 #endif
 
-extension AuthenticatedClientV1: @retroactive TestDependencyKey {
+extension Zoeken_V1.AuthenticatedClient: @retroactive TestDependencyKey {
     public static let testValue: Self = {
         @Dependency(TestStrategy.self) var testStrategy
         
         return switch testStrategy {
         case .local:
-            try! AuthenticatedClientV1.test { ClientV1.testValue }
+            try! Zoeken_V1.AuthenticatedClient.test { Zoeken_V1.Client.testValue }
             
         case .liveTest:
-            try! AuthenticatedClientV1.test { ClientV1.live(makeRequest: $0) }
+            try! Zoeken_V1.AuthenticatedClient.test { Zoeken_V1.Client.live(makeRequest: $0) }
             
         case .live:
-            try! AuthenticatedClientV1.test { ClientV1.live(makeRequest: $0) }
+            try! Zoeken_V1.AuthenticatedClient.test { Zoeken_V1.Client.live(makeRequest: $0) }
         }
     }()
 }

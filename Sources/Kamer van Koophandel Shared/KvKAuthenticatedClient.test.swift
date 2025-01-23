@@ -11,13 +11,12 @@ import Dependencies
 import DependenciesTestSupport
 import EmailAddress
 import Testing
-import Coenttb_Authentication
 
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
 
-extension _KvKAuthenticatedClient {
+extension Kamer_van_Koophandel_Shared.AuthenticatedClient {
     package static func test(
         router: APIRouter,
         buildClient: @escaping @Sendable (
@@ -46,7 +45,7 @@ extension _KvKAuthenticatedClient {
                         
             let kvkApiKey = try #require(envVars.kvkApiKey)
             
-            return _KvKAuthenticatedClient(
+            return Kamer_van_Koophandel_Shared.AuthenticatedClient(
                 kvkApiKey: kvkApiKey,
                 router: router,
                 buildClient: { buildClient($0) }
@@ -55,7 +54,7 @@ extension _KvKAuthenticatedClient {
     }
 }
 
-extension _KvKAuthenticatedClient where APIRouter: TestDependencyKey, APIRouter.Value == APIRouter {
+extension Kamer_van_Koophandel_Shared.AuthenticatedClient where APIRouter: TestDependencyKey, APIRouter.Value == APIRouter {
     package static func test(
         _ buildClient: @escaping @Sendable (
             _ makeRequest: @escaping @Sendable (_ route: API) throws -> URLRequest
@@ -69,7 +68,7 @@ extension _KvKAuthenticatedClient where APIRouter: TestDependencyKey, APIRouter.
     }
 }
 
-extension _KvKAuthenticatedClient where APIRouter: TestDependencyKey, APIRouter.Value == APIRouter {
+extension Kamer_van_Koophandel_Shared.AuthenticatedClient where APIRouter: TestDependencyKey, APIRouter.Value == APIRouter {
     package static func test(
         buildClient: @escaping @Sendable () -> ClientOutput
     ) throws -> Self where Auth == String, AuthRouter == KvKAuthRouter {

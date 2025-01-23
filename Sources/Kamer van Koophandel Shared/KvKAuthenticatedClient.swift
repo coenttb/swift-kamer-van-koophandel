@@ -14,7 +14,7 @@ import Coenttb_Authentication
 import FoundationNetworking
 #endif
 
-public typealias _KvKAuthenticatedClient<
+public typealias AuthenticatedClient<
     API: Equatable & Sendable,
     APIRouter: ParserPrinter & Sendable,
     Client: Sendable
@@ -26,7 +26,7 @@ public typealias _KvKAuthenticatedClient<
     Client
 > where APIRouter.Output == API, APIRouter.Input == URLRequestData
 
-extension _KvKAuthenticatedClient {
+extension Kamer_van_Koophandel_Shared.AuthenticatedClient {
     public init(
         kvkApiKey: String,
         router: APIRouter,
@@ -41,7 +41,6 @@ extension _KvKAuthenticatedClient {
         case .liveTest: true
         case .live: false
         }
-        
         
         self = .init(
             baseURL: baseUrl,

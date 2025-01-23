@@ -8,7 +8,7 @@ import FoundationNetworking
 #endif
 
 @DependencyClient
-public struct ClientV1: Sendable {
+public struct Client: Sendable {
     @DependencyEndpoint
     public var search: @Sendable (
         _ kvkNummer: Kamer_van_Koophandel_Models.Number?,
@@ -27,8 +27,8 @@ public struct ClientV1: Sendable {
     ) async throws -> ZoekenV1
 }
 
-public typealias AuthenticatedClientV1 = _KvKAuthenticatedClient<
-    APIV1,
-    APIV1.Router,
-    ClientV1
+public typealias AuthenticatedClient = Kamer_van_Koophandel_Shared.AuthenticatedClient<
+    Zoeken_V1.API,
+    Zoeken_V1.API.Router,
+    Zoeken_V1.Client
 >

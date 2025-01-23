@@ -20,7 +20,7 @@ public enum API: Equatable, Sendable {
 
 extension API {
     public enum Zoeken: Equatable, Sendable {
-        case v1(Zoeken_V1.APIV1)
+        case v1(Zoeken_V1.API)
         case v2(Zoeken_V2.API)
     }
 }
@@ -49,7 +49,7 @@ extension API {
                 URLRouting.Route(.case(API.zoeken)) {
                     OneOf {
                         URLRouting.Route(.case(API.Zoeken.v1)) {
-                            Zoeken_V1.APIV1.Router()
+                            Zoeken_V1.API.Router()
                         }
                         
                         URLRouting.Route(.case(API.Zoeken.v2)) {

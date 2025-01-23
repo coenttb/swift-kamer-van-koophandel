@@ -11,7 +11,7 @@ import DependenciesTestSupport
 import Foundation
 import URLRouting
 import Kamer_van_Koophandel_Shared
-@testable import Basisprofiel
+@testable import Basisprofielen
 @testable import Kamer_van_Koophandel_Models
 
 @Suite("Basisprofiel Router Tests")

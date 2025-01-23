@@ -109,7 +109,7 @@ public struct VestigingBasis: Codable, Equatable, Sendable {
     }
 }
 
-public typealias AuthenticatedClient = _KvKAuthenticatedClient<
+public typealias AuthenticatedClient = Kamer_van_Koophandel_Shared.AuthenticatedClient<
     API,
     API.Router,
     Client

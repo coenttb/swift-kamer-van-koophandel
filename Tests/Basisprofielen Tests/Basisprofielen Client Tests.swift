@@ -11,11 +11,11 @@ import Dependencies
 import DependenciesMacros
 import Kamer_van_Koophandel_Models
 import Kamer_van_Koophandel_Shared
-@testable import Basisprofiel
+@testable import Basisprofielen
 
 @Suite(
     "Basisprofiel Client Tests",
-    .dependency(TestStrategy.live)
+    .dependency(TestStrategy.liveTest)
 )
 struct BasisprofielClientTests {
     
