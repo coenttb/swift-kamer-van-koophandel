@@ -3,6 +3,7 @@ import IssueReporting
 import Dependencies
 import Kamer_van_Koophandel_Shared
 import Kamer_van_Koophandel_Models
+import Coenttb_Web
 
 #if canImport(FoundationNetworking)
 import FoundationNetworking
@@ -10,10 +11,11 @@ import FoundationNetworking
 
 extension ClientV1 {
     public static func live(
-        makeRequest: @escaping @Sendable (_ route: APIV1) throws -> URLRequest,
-        session: @escaping @Sendable (URLRequest) async throws -> (Data, URLResponse) = { try await URLSession.shared.data(for: $0) }
+        makeRequest: @escaping @Sendable (_ route: APIV1) throws -> URLRequest
     ) -> Self {
-        Self(
+        @Dependency(URLRequest.Handler.self) var handleRequest
+        
+        return Self(
             search: { kvkNummer, rsin, vestigingsnummer, handelsnaam, straatnaam, plaats, postcode, huisnummer, huisnummerToevoeging, type, inclusiefInactieveRegistraties, pagina, aantal in
                 try await handleRequest(
                     for: makeRequest(
@@ -33,8 +35,7 @@ extension ClientV1 {
                             aantal: aantal
                         )
                     ),
-                    decodingTo: ZoekenV1.self,
-                    session: session
+                    decodingTo: ZoekenV1.self
                 )
             }
         )
@@ -43,22 +44,17 @@ extension ClientV1 {
 
 extension ClientV1 {
     public static func live(
-        baseURL: URL = URL(string: "https://api.kvk.nl")!,
-        apiKey: String,
-        session: @escaping @Sendable (URLRequest) async throws -> (Data, URLResponse) = { request in try await URLSession.shared.data(for: request)}
+        apiKey: String
     ) -> AuthenticatedClientV1 {
         
         @Dependency(APIV1.Router.self) var router
         
         return AuthenticatedClientV1(
-            baseURL: baseURL,
             kvkApiKey: apiKey,
-            session: session,
             router: router
         ) { makeRequest in
             ClientV1.live(
-                makeRequest: makeRequest,
-                session: session
+                makeRequest: makeRequest
             )
         }
     }

@@ -19,7 +19,6 @@ import FoundationNetworking
 
 extension _KvKAuthenticatedClient {
     package static func test(
-        session: @escaping @Sendable (URLRequest) async throws -> (Data, URLResponse) = { request in try await URLSession.shared.data(for: request) },
         router: APIRouter,
         buildClient: @escaping @Sendable (
             _ makeRequest: @escaping @Sendable (_ route: API) throws -> URLRequest
@@ -49,7 +48,6 @@ extension _KvKAuthenticatedClient {
             
             return _KvKAuthenticatedClient(
                 kvkApiKey: kvkApiKey,
-                session: session,
                 router: router,
                 buildClient: { buildClient($0) }
             )
@@ -59,14 +57,12 @@ extension _KvKAuthenticatedClient {
 
 extension _KvKAuthenticatedClient where APIRouter: TestDependencyKey, APIRouter.Value == APIRouter {
     package static func test(
-        session: @escaping @Sendable (URLRequest) async throws -> (Data, URLResponse) = { request in try await URLSession.shared.data(for: request) },
         _ buildClient: @escaping @Sendable (
             _ makeRequest: @escaping @Sendable (_ route: API) throws -> URLRequest
         ) -> ClientOutput
     ) throws -> Self where Auth == String, AuthRouter == KvKAuthRouter {
         @Dependency(APIRouter.self) var router
         return try .test(
-            session: session,
             router: router,
             buildClient: buildClient
         )
@@ -75,12 +71,10 @@ extension _KvKAuthenticatedClient where APIRouter: TestDependencyKey, APIRouter.
 
 extension _KvKAuthenticatedClient where APIRouter: TestDependencyKey, APIRouter.Value == APIRouter {
     package static func test(
-        session: @escaping @Sendable (URLRequest) async throws -> (Data, URLResponse) = { request in try await URLSession.shared.data(for: request) },
         buildClient: @escaping @Sendable () -> ClientOutput
     ) throws -> Self where Auth == String, AuthRouter == KvKAuthRouter {
         @Dependency(APIRouter.self) var router
         return try .test(
-            session: session,
             router: router
         ) { _ in buildClient() }
     }

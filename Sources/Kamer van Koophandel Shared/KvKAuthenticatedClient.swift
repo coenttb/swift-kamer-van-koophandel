@@ -28,14 +28,13 @@ public typealias _KvKAuthenticatedClient<
 
 extension _KvKAuthenticatedClient {
     public init(
-        baseURL: URL = .init(string: "https://api.kvk.nl")!,
         kvkApiKey: String,
-        session: @escaping @Sendable (URLRequest) async throws -> (Data, URLResponse) = { request in try await URLSession.shared.data(for: request) },
         router: APIRouter,
         buildClient: @escaping @Sendable (@escaping @Sendable (API) throws -> URLRequest) -> ClientOutput
     ) where Auth == String, AuthRouter == KvKAuthRouter {
         
         @Dependency(TestStrategy.self) var testStrategy
+        @Dependency(\.kamerVanKoophandel.baseUrl) var baseUrl
         
         let includeTestPathComponent: Bool = switch testStrategy {
         case .local: true
@@ -43,12 +42,10 @@ extension _KvKAuthenticatedClient {
         case .live: false
         }
         
-        print("includeTestPathComponent", includeTestPathComponent)
         
         self = .init(
-            baseURL: baseURL,
+            baseURL: baseUrl,
             auth: kvkApiKey,
-            session: session,
             router: router,
             authRouter: KvKAuthRouter(includeTestPathComponent: includeTestPathComponent),
             buildClient: buildClient
