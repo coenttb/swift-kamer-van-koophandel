@@ -1,15 +1,21 @@
 # swift-kamer-van-koophandel
 
-`swift-kamer-van-koophandel` is an unoffical SDK for the Kamer van Koophandel (National Chamber of Commerce of the Netherlands).
-
+[![CI](https://github.com/coenttb/swift-kamer-van-koophandel/workflows/CI/badge.svg)](https://github.com/coenttb/swift-kamer-van-koophandel/actions/workflows/ci.yml)
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
-This package is currently in active development and is subject to frequent changes. Features and APIs may change without prior notice until a stable release is available.
+An unofficial Swift SDK for the Kamer van Koophandel (KvK) API, providing type-safe access to the Dutch Chamber of Commerce business registry.
 
-## Key Features
-- **Built entirely in Swift**: Leverages the power of Swift and Vapor to deliver backend capabilities without JavaScript dependencies.
-- **Functional Elegance**: Clean and testable architecture inspired by PointFree's best practices.
-- **Hypermodular**: Highly modular design, allowing for reusable components that are easy to test, maintain, and integrate.
+## Overview
+
+This package provides a Swift interface to the KvK API, enabling integration with the Dutch business registry. It includes support for searching businesses, retrieving company profiles, and accessing establishment information.
+
+## Features
+
+- Type-safe API client with structured query support
+- Comprehensive data models for KvK business entities
+- Multiple API endpoint modules: Search (V1 & V2), Company Profiles, Establishments, Trade Names
+- Built on Point-Free's Dependencies library for testable architecture
+- Actor-based concurrency with Swift 6.0
 
 ## Installation
 
@@ -38,23 +44,15 @@ extension Kamer_van_Koophandel.AuthenticatedClient: DependencyKey {
 
 Which makes the Client available anywhere using `@Dependency(Kamer_van_Koophandel.AuthenticatedClient.self) var kvkClient`.
 
-## Feedback is much appreciated!
+## Contributing
 
-If you’re working on your own Swift project, feel free to learn, fork, and contribute.
-
-Got thoughts? Found something you love? Something you hate? Let me know! Your feedback helps make this project better for everyone. Open an issue or start a discussion—I’m all ears.
-
-> [Subscribe to my newsletter](http://coenttb.com/en/newsletter/subscribe)
->
-> [Follow me on X](http://x.com/coenttb)
-> 
-> [Link on Linkedin](https://www.linkedin.com/in/tenthijeboonkkamp)
+Contributions are welcome. Please open an issue or submit a pull request.
 
 ## Related Packages
 
 ### Dependencies
 
-- [coenttb-authentication](https://github.com/coenttb/coenttb-authentication): [Description needed for coenttb-authentication]
+- [swift-authentication](https://github.com/coenttb/swift-authentication): A Swift package for type-safe HTTP authentication with URL routing integration.
 - [coenttb-web](https://github.com/coenttb/coenttb-web): A Swift package with tools for web development building on swift-web.
 
 ### Used By

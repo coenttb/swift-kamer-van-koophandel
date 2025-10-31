@@ -7,7 +7,7 @@ extension String {
     static let kamerVanKoopHandel = "Kamer van Koophandel"
     static let kvkModels = "Kamer van Koophandel Models"
     static let kvkShared = "Kamer van Koophandel Shared"
-    
+
     static let basisprofiel = "Basisprofielen"
     static let naamgeving = "Naamgevingen"
     static let vestigingsprofiel = "Vestigingsprofielen"
@@ -19,7 +19,7 @@ extension Target.Dependency {
     static var kamerVanKoopHandel: Self {.target(name: .kamerVanKoopHandel) }
     static var kvkModels: Self { .target(name: .kvkModels) }
     static var kvkShared: Self { .target(name: .kvkShared) }
-    
+
     static var basisprofiel: Self { .target(name: .basisprofiel) }
     static var naamgeving: Self { .target(name: .naamgeving) }
     static var vestigingsprofiel: Self { .target(name: .vestigingsprofiel) }
@@ -49,19 +49,19 @@ let package = Package(
                 .zoekenV1,
                 .basisprofiel,
                 .vestigingsprofiel,
-                .naamgeving,
+                .naamgeving
             ]
         ),
         .library(name: .zoekenV2, targets: [.zoekenV2]),
         .library(name: .zoekenV1, targets: [.zoekenV1]),
         .library(name: .basisprofiel, targets: [.basisprofiel]),
         .library(name: .vestigingsprofiel, targets: [.vestigingsprofiel]),
-        .library(name: .naamgeving, targets: [.naamgeving]),
+        .library(name: .naamgeving, targets: [.naamgeving])
     ],
     dependencies: [
         .package(url: "https://github.com/coenttb/coenttb-web.git", branch: "main"),
         .package(url: "https://github.com/coenttb/coenttb-authentication.git", branch: "main"),
-        .package(url: "https://github.com/pointfreeco/swift-dependencies.git", from: "1.1.5"),
+        .package(url: "https://github.com/pointfreeco/swift-dependencies.git", from: "1.1.5")
     ],
     targets: [
         .target(
@@ -75,14 +75,14 @@ let package = Package(
                 .zoekenV1,
                 .basisprofiel,
                 .vestigingsprofiel,
-                .naamgeving,
+                .naamgeving
             ]
         ),
         .target(
             name: .kvkModels,
             dependencies: [
                 .coenttbWeb,
-                .kvkShared,
+                .kvkShared
             ]
         ),
         .target(
@@ -90,7 +90,7 @@ let package = Package(
             dependencies: [
                 .coenttbWeb,
                 .dependenciesTestSupport,
-                .coenttbAuthentication,
+                .coenttbAuthentication
             ]
         ),
         .target(
@@ -99,7 +99,7 @@ let package = Package(
                 .coenttbWeb,
                 .kvkShared,
                 .kvkModels,
-                .dependenciesMacros,
+                .dependenciesMacros
             ]
         ),
         .testTarget(
@@ -109,7 +109,7 @@ let package = Package(
                 .dependenciesTestSupport,
                 .coenttbWeb,
                 .kvkShared,
-                .kvkModels,
+                .kvkModels
             ]
         ),
         .target(
@@ -118,7 +118,7 @@ let package = Package(
                 .coenttbWeb,
                 .kvkShared,
                 .kvkModels,
-                .dependenciesMacros,
+                .dependenciesMacros
             ]
         ),
         .testTarget(
@@ -128,7 +128,7 @@ let package = Package(
                 .dependenciesTestSupport,
                 .coenttbWeb,
                 .kvkShared,
-                .kvkModels,
+                .kvkModels
             ]
         ),
         .target(
@@ -137,7 +137,7 @@ let package = Package(
                 .coenttbWeb,
                 .kvkShared,
                 .kvkModels,
-                .dependenciesMacros,
+                .dependenciesMacros
             ]
         ),
         .testTarget(
@@ -147,7 +147,7 @@ let package = Package(
                 .dependenciesTestSupport,
                 .coenttbWeb,
                 .kvkShared,
-                .kvkModels,
+                .kvkModels
             ]
         ),
         .target(
@@ -156,7 +156,7 @@ let package = Package(
                 .coenttbWeb,
                 .kvkShared,
                 .kvkModels,
-                .dependenciesMacros,
+                .dependenciesMacros
             ]
         ),
         .testTarget(
@@ -166,7 +166,7 @@ let package = Package(
                 .dependenciesTestSupport,
                 .coenttbWeb,
                 .kvkShared,
-                .kvkModels,
+                .kvkModels
             ]
         ),
         .target(
@@ -175,7 +175,7 @@ let package = Package(
                 .coenttbWeb,
                 .kvkShared,
                 .kvkModels,
-                .dependenciesMacros,
+                .dependenciesMacros
             ]
         ),
         .testTarget(
@@ -185,9 +185,19 @@ let package = Package(
                 .dependenciesTestSupport,
                 .coenttbWeb,
                 .kvkShared,
-                .kvkModels,
+                .kvkModels
             ]
         ),
+        .testTarget(
+            name: .kamerVanKoopHandel.tests,
+            dependencies: [
+                .kamerVanKoopHandel,
+                .dependenciesTestSupport,
+                .coenttbWeb,
+                .kvkShared,
+                .kvkModels
+            ]
+        )
     ],
     swiftLanguageModes: [.v6]
 )
