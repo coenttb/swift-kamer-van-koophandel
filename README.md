@@ -50,6 +50,21 @@ Got thoughts? Found something you love? Something you hate? Let me know! Your fe
 > 
 > [Link on Linkedin](https://www.linkedin.com/in/tenthijeboonkkamp)
 
+## Related Packages
+
+### Dependencies
+
+- [coenttb-authentication](https://github.com/coenttb/coenttb-authentication): [Description needed for coenttb-authentication]
+- [coenttb-web](https://github.com/coenttb/coenttb-web): A Swift package with tools for web development building on swift-web.
+
+### Used By
+
+- [coenttb-kamer-van-koophandel](https://github.com/coenttb/coenttb-kamer-van-koophandel): A Swift package integrating swift-kamer-van-koophandel with Vapor.
+
+### Third-Party Dependencies
+
+- [pointfreeco/swift-dependencies](https://github.com/pointfreeco/swift-dependencies): A dependency management library for controlling dependencies in Swift.
+
 ## License
 
 This project is licensed under the **Apache 2.0 License**.  
