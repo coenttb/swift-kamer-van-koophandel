@@ -64,3 +64,17 @@ github_token.txt
 # Exclude specific env file
 !.env.example
 .env.development
+
+# AI assistant files
+.claude/
+CLAUDE.md
+CLAUDE.MD
+
+# Documentation (opt-in for top-level .md files only)
+/*.md
+!README.md
+!LICENSE.md
+!CHANGELOG.md
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+!SECURITY.md
